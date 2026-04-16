@@ -1,49 +1,49 @@
-// Book data
+// Sample list of books (you can modify or expand this)
 const books = [
   {
-    title: "Things Fall Apart",
-    author: "Chinua Achebe",
-    image: "https://covers.openlibrary.org/b/id/8231856-L.jpg"
+    title: "Eloquent JavaScript",
+    author: "Marijn Haverbeke",
+    year: 2018
   },
   {
-    title: "Half of a Yellow Sun",
-    author: "Chimamanda Ngozi Adichie",
-    image: "https://covers.openlibrary.org/b/id/8231990-L.jpg"
+    title: "You Don’t Know JS",
+    author: "Kyle Simpson",
+    year: 2020
   },
   {
-    title: "The River Between",
-    author: "Ngugi wa Thiong'o",
-    image: "https://covers.openlibrary.org/b/id/8232001-L.jpg"
+    title: "JavaScript: The Good Parts",
+    author: "Douglas Crockford",
+    year: 2008
   }
 ];
 
-// change the page title
-const mainTitle = document.getElementById("main-title");
-mainTitle.textContent = "Flatbook Store";
+// 1. Update page title
+const pageTitle = document.getElementById("page-title");
+pageTitle.textContent = "📚 Flatbook — Your Local Bookstore";
 
-// get the container
-const bookList = document.getElementById("book-list");
+// 2. Add books to the DOM
+const booksList = document.getElementById("books-list");
 
-// loop through books
-books.forEach(function(book) {
+books.forEach(book => {
+  // Create container for a single book
+  const bookDiv = document.createElement("div");
+  bookDiv.classList.add("book");
 
-  const bookCard = document.createElement("div");
+  // Create title
+  const bookTitle = document.createElement("h2");
+  bookTitle.textContent = book.title;
 
-  const title = document.createElement("h2");
-  title.textContent = book.title;
+  // Create author paragraph
+  const bookAuthor = document.createElement("p");
+  bookAuthor.textContent = `Author: ${book.author}`;
 
-  const author = document.createElement("p");
-  author.textContent = book.author;
+  // Create year paragraph
+  const bookYear = document.createElement("p");
+  bookYear.textContent = `Published: ${book.year}`;
 
-  const image = document.createElement("img");
-  image.src = book.image;
-  image.width = 150;
+  // Append to book div
+  bookDiv.append(bookTitle, bookAuthor, bookYear);
 
-  // add elements to card
-  bookCard.appendChild(title);
-  bookCard.appendChild(author);
-  bookCard.appendChild(image);
-
-  // add card to page
-  bookList.appendChild(bookCard);
+  // Append to entire list
+  booksList.appendChild(bookDiv);
 });

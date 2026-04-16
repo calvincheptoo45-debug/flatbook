@@ -1,49 +1,25 @@
-// Sample list of books (you can modify or expand this)
-const books = [
-  {
-    title: "Eloquent JavaScript",
-    author: "Marijn Haverbeke",
-    year: 2018
-  },
-  {
-    title: "You Don’t Know JS",
-    author: "Kyle Simpson",
-    year: 2020
-  },
-  {
-    title: "JavaScript: The Good Parts",
-    author: "Douglas Crockford",
-    year: 2008
-  }
-];
+// Wait until DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
 
-// 1. Update page title
-const pageTitle = document.getElementById("page-title");
-pageTitle.textContent = "📚 Flatbook — Your Local Bookstore";
+  // Fix header text
+  const header = document.getElementById("header");
+  header.innerText = "Flatbooks Technical Books";
 
-// 2. Add books to the DOM
-const booksList = document.getElementById("books-list");
+  // Get book list element
+  const bookList = document.getElementById("book-list");
 
-books.forEach(book => {
-  // Create container for a single book
-  const bookDiv = document.createElement("div");
-  bookDiv.classList.add("book");
+  // Sample books (this is what tests expect)
+  const books = [
+    { title: "Eloquent JavaScript", author: "Marijn Haverbeke" },
+    { title: "JavaScript: The Good Parts", author: "Douglas Crockford" },
+    { title: "You Don't Know JS", author: "Kyle Simpson" }
+  ];
 
-  // Create title
-  const bookTitle = document.createElement("h2");
-  bookTitle.textContent = book.title;
+  // Loop through books and add to DOM
+  books.forEach(book => {
+    const li = document.createElement("li");
+    li.innerHTML = `${book.title} by ${book.author}`;
+    bookList.appendChild(li);
+  });
 
-  // Create author paragraph
-  const bookAuthor = document.createElement("p");
-  bookAuthor.textContent = `Author: ${book.author}`;
-
-  // Create year paragraph
-  const bookYear = document.createElement("p");
-  bookYear.textContent = `Published: ${book.year}`;
-
-  // Append to book div
-  bookDiv.append(bookTitle, bookAuthor, bookYear);
-
-  // Append to entire list
-  booksList.appendChild(bookDiv);
 });

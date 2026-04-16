@@ -1,0 +1,16 @@
+{
+  "name": "flatbook",
+  "version": "1.0.0",
+  "description": "DOM manipulation lab for Flatbook bookstore",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "jsdom": "^22.0.0"
+  }
+}

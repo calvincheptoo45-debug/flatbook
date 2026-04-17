@@ -1,25 +1,33 @@
-// Wait until DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
+// Set header text
+document.getElementById("header").textContent = "Flatbooks Technical Books";
 
-  // Fix header text
-  const header = document.getElementById("header");
-  header.innerText = "Flatbooks Technical Books";
+// Book data
+const books = [
+  {
+    title: "Eloquent JavaScript: A Modern Introduction to Programming",
+    author: "Marijn Haverbeke",
+    image: "https://images-na.ssl-images-amazon.com/images/I/91asIC1fRwL.jpg"
+  },
+  {
+    title: "HTML and CSS: Design and Build Websites",
+    author: "Jon Duckett",
+    image: "https://images-na.ssl-images-amazon.com/images/I/41SH-SvWPxL._SX258_BO1,204,203,200_.jpg"
+  }
+];
 
-  // Get book list element
-  const bookList = document.getElementById("book-list");
+// Select the book list
+const bookList = document.getElementById("book-list");
 
-  // Sample books (this is what tests expect)
-  const books = [
-    { title: "Eloquent JavaScript", author: "Marijn Haverbeke" },
-    { title: "JavaScript: The Good Parts", author: "Douglas Crockford" },
-    { title: "You Don't Know JS", author: "Kyle Simpson" }
-  ];
+// Loop through books
+books.forEach(book => {
+  const li = document.createElement("li");
 
-  // Loop through books and add to DOM
-  books.forEach(book => {
-    const li = document.createElement("li");
-    li.innerHTML = `${book.title} by ${book.author}`;
-    bookList.appendChild(li);
-  });
+  // Add title, author, and image
+  li.innerHTML = `
+    <h2>${book.title}</h2>
+    <p>${book.author}</p>
+    <img src="${book.image}" />
+  `;
 
+  bookList.appendChild(li);
 });

@@ -1,7 +1,7 @@
-// Set header text
+// Set the header text
 document.getElementById("header").textContent = "Flatbooks Technical Books";
 
-// Book data
+// Full list of books (ALL required ones)
 const books = [
   {
     title: "Eloquent JavaScript: A Modern Introduction to Programming",
@@ -12,21 +12,25 @@ const books = [
     title: "HTML and CSS: Design and Build Websites",
     author: "Jon Duckett",
     image: "https://images-na.ssl-images-amazon.com/images/I/41SH-SvWPxL._SX258_BO1,204,203,200_.jpg"
+  },
+  {
+    title: "Cracking the Coding Interview",
+    author: "Gayle Laakmann McDowell",
+    image: "https://images-na.ssl-images-amazon.com/images/I/81XkqYAq-GL.jpg"
   }
 ];
 
-// Select the book list
+// Select the list
 const bookList = document.getElementById("book-list");
 
-// Loop through books
+// Loop through ALL books and render them
 books.forEach(book => {
   const li = document.createElement("li");
 
-  // Add title, author, and image
   li.innerHTML = `
     <h2>${book.title}</h2>
     <p>${book.author}</p>
-    <img src="${book.image}" />
+    <img src="${book.image}">
   `;
 
   bookList.appendChild(li);
